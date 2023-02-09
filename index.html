@@ -2,69 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/teiatan/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>NewsApp</title>
     
-    <script type="module" crossorigin src="/teiatan/assets/index-fac82e35.js"></script>
-    <link rel="stylesheet" href="/teiatan/assets/index-66886d44.css">
+    <script type="module" crossorigin src="/teiatan/assets/index-899916e4.js"></script>
   </head>
   <body>
-    <section>
-      <h1>Lorem ipsum dolor sit amet.</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="/teiatan/assets/javascript-8dac5379.svg" alt="" />
-    </section>
 
-    <!-- Loads the specified .html file -->
-    <section class="vite-promo">
-  <div class="container">
-    <div class="wrapper">
-      <h2 class="title">
-        <span class="gradient">Vite</span>
-      </h2>
-      <p class="text">Next Generation Frontend Tooling</p>
-      <p class="tagline">
-        Get ready for a development environment that can finally catch up with
-        you.
-      </p>
+      <h1>It`s header</h1>
+<nav class="navigation">
+    
+    <a href="/src/index.html" class="logo" id="logo">
+    News
+  </a>
 
-      <ul class="actions">
-        <li class="action">
-          <a
-            class="link"
-            href="https://vitejs.dev/guide/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Get Started</a
-          >
+    <ul class="navigation__list">
+
+        <li class="navigation__item">
+                <a href="/src/index.html" class="navigation__link navigation__link--current-page">
+                    Home
+                </a>
         </li>
-        <li class="action">
-          <a
-            class="link"
-            href="https://github.com/vitejs/vite"
-            target="_blank"
-            rel="noopener noreferrer"
-            >View on GitHub</a
-          >
+
+        <li class="navigation__item navigation__item--favorite js__my-lirbary-link is-hidden">
+            <a href="/src/my_library.html" class="navigation__link">
+                Favorite
+            </a>
         </li>
-      </ul>
-    </div>
 
-    <div class="thumb">
-      <!-- Path to images as from index.html file -->
-      <img
-        class="pic"
-        src="/teiatan/assets/vite-logo-51249ca9.png"
-        alt="Vite logo"
-        width="640"
-        height="640"
-      />
-    </div>
-  </div>
-</section>
+        <li class="navigation__item navigation__item--read js__my-lirbary-link is-hidden">
+            <a href="/src/my_library.html" class="navigation__link">
+            Favorite
+            </a>
+        </li>
 
+        <li class="navigation__item js__sign-in-btn">
+            <button
+            type="button"
+            class="button navigation__button"
+            title="sign in"
+            >
+            Sign in
+            </button>
+        </li>
 
+        <li class="navigation__item navigation__item--library js__sign-out-btn is-hidden">
+            <a href="/src/index.html" class="navigation__link" title="sign out">
+                Sign out 
+            </a>
+        </li>
+
+    </ul>
+
+  </nav>
+      <h1>Source for searching news</h1>
+
+      <h1>It`s footer</h1>
+
+  
     
   </body>
 </html>
