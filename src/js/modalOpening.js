@@ -45,11 +45,13 @@ export function addModalOpenListeners() {
 export function openAuthModal() {
     removeIsHidden(refs.authModal);
     refs.authEntranceBtn.addEventListener('click', authEntranceBtnHandler);
+    document.addEventListener( 'keyup', authWithEnter);
 };
 
 export function closeAuthModal() {
     addIsHidden(refs.authModal);
     refs.authEntranceBtn.removeEventListener('click', authEntranceBtnHandler);
+    document.removeEventListener( 'keyup', authWithEnter);
 };
 
 export function openNewsModal() {
@@ -59,3 +61,12 @@ export function openNewsModal() {
 export function openDevelopersModal() {
     
 };
+
+function authWithEnter(e) {
+    if(e.code === 'Enter' ) {
+        authEntranceBtnHandler(e);
+        if(localStorage.auth === "yes") {
+            document.removeEventListener('keyup', authWithEnter);
+        }
+    };
+}
