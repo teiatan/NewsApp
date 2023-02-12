@@ -42,7 +42,7 @@ export function addModalOpenListeners() {
 };
 
 export function openAuthModal() {
-    
+    removeIsHidden(refs.authModal);
 };
 
 export function openNewsModal() {
