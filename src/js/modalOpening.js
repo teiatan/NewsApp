@@ -1,5 +1,6 @@
 import { refs } from './refs';
 import { addIsHidden, removeIsHidden } from './isHidden';
+import { authEntranceBtnHandler } from './auth';
 
 export function addModalOpenListeners() {
     if(refs.modalOpenBtns.length === 0) {
@@ -43,6 +44,7 @@ export function addModalOpenListeners() {
 
 export function openAuthModal() {
     removeIsHidden(refs.authModal);
+    refs.authEntranceBtn.addEventListener('click', authEntranceBtnHandler);
 };
 
 export function openNewsModal() {
