@@ -1,5 +1,6 @@
 import { refs } from './refs';
 import Notiflix from 'notiflix';
+import { headerLogic } from './logicFor3pages';
 
 export function checkUserRegistration(email, password) {
     const apiKey = 'AIzaSyCh4IOUhN3RY5RpYi3dFrDkgc69KqBpI3o';
@@ -35,22 +36,22 @@ export function authWithEmailAndPassword() {
   };
 
 function noUserWarning() {
-    if (localStorage.language === 'en') {
-        Notiflix.Report.failure(
-          'There is no such user',
-          'Сheck email and password or sign up',
-          'Okay',);
-      } else if (localStorage.language === 'ua') {
-        Notiflix.Report.failure(
-          'Невірно веедені дані',
-          'Перевірте правильність введення пошти та пароля або зареєструйтеся',
-          'Ок',);
-      } else {
-        Notiflix.Report.failure(
-          'There is no such user',
-          'Сheck email and password or sign up',
-          'Okay',);
-      };
+  if (localStorage.language === 'en') {
+    Notiflix.Report.failure(
+      'There is no such user',
+      'Сheck email and password or sign up',
+      'Okay',);
+  } else if (localStorage.language === 'ua') {
+    Notiflix.Report.failure(
+      'Невірно веедені дані',
+      'Перевірте правильність введення пошти та пароля або зареєструйтеся',
+      'Ок',);
+  } else {
+    Notiflix.Report.failure(
+      'There is no such user',
+      'Сheck email and password or sign up',
+      'Okay',);
+  };
 };
 
 function emptyInputWarning() {
@@ -66,7 +67,13 @@ function emptyInputWarning() {
     };
 }
 
-export function authEntranceBtnHandler(e) {
-    e.preventDefault();
-    authWithEmailAndPassword(email, password);
+export async function authEntranceBtnHandler(e) {
+  e.preventDefault();
+  await authWithEmailAndPassword(email, password);
+  headerLogic();
+};
+
+export function signOutBtnHandler() {
+  localStorage.auth = 'no';
+  headerLogic();
 };

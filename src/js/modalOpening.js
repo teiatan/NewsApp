@@ -47,6 +47,11 @@ export function openAuthModal() {
     refs.authEntranceBtn.addEventListener('click', authEntranceBtnHandler);
 };
 
+export function closeAuthModal() {
+    addIsHidden(refs.authModal);
+    refs.authEntranceBtn.removeEventListener('click', authEntranceBtnHandler);
+};
+
 export function openNewsModal() {
     
 };

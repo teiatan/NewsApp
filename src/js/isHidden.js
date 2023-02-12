@@ -7,7 +7,6 @@ export function addIsHidden(node) {
 };
 
 export function removeIsHidden(node) {
-
     if(node.length > 1) {
         node.forEach((btn) => btn.classList.remove("is-hidden"));
     } else {
