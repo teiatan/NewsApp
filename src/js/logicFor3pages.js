@@ -11,9 +11,15 @@ export function defaultLocalStorage() {
         localStorage.favorite = [];
         localStorage.read = [];
     };
+    if(localStorage.auth === 'no') {
+        localStorage.removeItem('authId');
+        localStorage.favorite = [];
+        localStorage.read = [];
+    };
 };
 
 export function headerLogic() {
+    
     if(localStorage.length === 0) {
         defaultLocalStorage();
     } else if(localStorage.auth === 'yes') {
@@ -29,3 +35,4 @@ export function headerLogic() {
         refs.headerSignOutBtn.removeEventListener('click', signOutBtnHandler);
     };
 };
+

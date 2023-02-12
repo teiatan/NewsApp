@@ -1,6 +1,6 @@
 import { refs } from './refs';
 import Notiflix from 'notiflix';
-import { headerLogic } from './logicFor3pages';
+import { defaultLocalStorage, headerLogic } from './logicFor3pages';
 
 export function checkUserRegistration(email, password) {
     const apiKey = 'AIzaSyCh4IOUhN3RY5RpYi3dFrDkgc69KqBpI3o';
@@ -23,7 +23,7 @@ export function authWithEmailAndPassword() {
         emptyInputWarning();
         return;
     };
-
+      Notiflix.Loading.pulse();
       return checkUserRegistration(email, password)
         .then(data => {
           if (data.registered === true) {
@@ -70,10 +70,14 @@ function emptyInputWarning() {
 export async function authEntranceBtnHandler(e) {
   e.preventDefault();
   await authWithEmailAndPassword(email, password);
+  Notiflix.Loading.remove();
   headerLogic();
 };
 
 export function signOutBtnHandler() {
+  Notiflix.Loading.pulse();
   localStorage.auth = 'no';
   headerLogic();
+  defaultLocalStorage();
+  Notiflix.Loading.remove();
 };
