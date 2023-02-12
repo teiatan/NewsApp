@@ -1,7 +1,7 @@
 export const refs = {
 // відкриття/закриття модалок
-    authModalBtn:document.querySelectorAll('[data-modal-auth]'),
-
+    modalOpenBtns:document.querySelectorAll('[data-modal-open]'),
+    modalCloseBtns:document.querySelectorAll('[data-modal-close]'),
 
 // АВТОРИЗАЦІЯ
 

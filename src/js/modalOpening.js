@@ -1,36 +1,54 @@
 import { refs } from './refs';
-//авторизація
-export function authModalOpen() {
+import { addIsHidden, removeIsHidden } from './isHidden';
+
+export function addModalOpenListeners() {
+    if(refs.modalOpenBtns.length === 0) {
+        return;
+    } else if(refs.modalOpenBtns.length > 1) {
+        refs.modalOpenBtns.forEach((btn) => {          
+
+            switch(btn.dataset.modalOpen) {
+                case 'auth':
+                btn.addEventListener('click', openAuthModal);
+                break;
+
+                case 'news':
+                btn.addEventListener('click', openNewsModal);
+                break;
+
+                case 'developers':
+                btn.addEventListener('click', openDevelopersModal);
+                break;
+                
+            }
+        });        
+    } else {
+        switch(refs.modalOpenBtns[0].dataset.modalOpen) {
+            case 'auth':
+            refs.modalOpenBtns[0].addEventListener('click', openAuthModal);
+            break;
+
+            case 'news':
+            refs.modalOpenBtns[0].addEventListener('click', openNewsModal);
+            break;
+
+            case 'developers':
+            refs.modalOpenBtns[0].addEventListener('click', openDevelopersModal);
+            break;
+            
+        }
     
-    console.log(refs.authModalBtn);
-
-
+    };
 };
 
-
-
-
-
-export function authModalClose() {
-
+export function openAuthModal() {
+    
 };
 
-//новина
-
-export function newsModalOpen() {
-
+export function openNewsModal() {
+    
 };
 
-export function newsModalClose() {
-
-};
-
-//розробники
-
-export function developersModalOpen() {
-
-};
-
-export function developersModalClose() {
-
+export function openDevelopersModal() {
+    
 };
